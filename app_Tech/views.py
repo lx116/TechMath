@@ -7,4 +7,4 @@ from django.views.decorators.csrf import csrf_exempt
 
 def startApp(request):
 
-    return render(request,'appOne.html')
+    return render(request,'index.html')
