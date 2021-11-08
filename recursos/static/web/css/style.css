@@ -1,0 +1,57 @@
+.navColorText a
+{
+    color: white;
+    font-size: 18px;
+}
+
+.banner
+{
+    width: 100vw;
+    height: 22vh;
+    background-image: url("../img/1145374.jpg");
+    background-position: center;
+}
+.cristal
+{
+    background: rgba(115, 115, 115, 0.38);
+    backdrop-filter: blur(1px);
+}
+
+.inputsSpace
+{   margin-top: 125px;
+    margin-left: auto;
+    margin-right:5% ;
+    height: 55vh;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
+    padding: 0;
+
+}
+.resultsSpace
+{
+     margin-top: 125px;
+    margin-left: 5%;
+    margin-right:auto ;
+    height: 55vh;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
+    padding: 0;
+
+}
+.inputVar
+{
+    margin-top: 10px;
+}
+.titleSpace
+{
+    color: white;
+    text-align: center;
+    background: #2c3034;
+    border-radius: 10px 10px 30px 0;
+}
+.inputsGroup
+{
+    margin-left: 20%;
+}
