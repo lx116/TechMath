@@ -16,3 +16,7 @@ def AboutUs(request):
 def PresentatioScreen(request):
 
     return render(request,'index.html')
+
+def Documentation(request):
+
+    return  render(request,'documentation.html')
