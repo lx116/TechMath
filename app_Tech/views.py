@@ -23,10 +23,7 @@ def Documentation(request):
 
 
 def interpolLineal(request):
-    req = request.POST['data']
-    data = json.loads(req)
 
-    varOne = int(data.get('var'))
 
     interpolacionLineal.interpolLineal()
 
