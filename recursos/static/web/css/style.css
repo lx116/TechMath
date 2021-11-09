@@ -97,3 +97,90 @@ input
     font-family: 'Montserrat Light';
 
 }
+.textAlingCenter
+{
+    text-align: center;
+    color: #2c3034;
+    font-family: "Montserrat Light";
+    font-size: 24px;
+    margin: 30px auto auto auto;
+}
+.textAlingCenter h3
+{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.textAlingCenter h4
+{
+    margin-top: 40px;
+}
+.textAlingCenter a
+{
+    color: #2c3034;
+}
+.framePhotoRigth
+{
+
+    margin-top: 10px;
+    height: 500px;
+    width: 500px;
+    margin-right: 50px;
+    border-radius: 10px;
+    background: #2c3034;
+}
+.framePhotoLeft
+{
+
+    margin-top: 10px;
+    height: 500px;
+    width: 500px;
+    margin-left: 50px;
+    border-radius: 10px;
+    background: #2c3034;
+}
+.framePhoto .img
+{
+    width: 92%;
+    height: 92%;
+    border-radius: 10px;
+    margin: 4% 4% 3% 4%;
+    background-image: url("../img/Mockup.png");
+    background-position: center;
+    background-size: cover;
+
+}
+.textRigth
+{
+    margin-top: 5%;
+    position: relative;
+    float: left;
+    margin-left: auto;
+    width: 700px;
+}
+.textRigth
+{
+    margin-top: 5%;
+    position: relative;
+    float: left;
+    margin-left: 40px;
+    width: 500px;
+}
+.textLeft
+{
+    margin-top: 5%;
+    position: relative;
+    float: left;
+    margin-left: 50px;
+    width: 500px;
+}
+.limitSpace
+{
+    width: 1200px;
+}
+.footerEnd
+{
+    background: #2c3034;
+    width: 100vw;
+    height: 20vh;
+    margin-top: 80px;
+}
