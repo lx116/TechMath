@@ -8,3 +8,15 @@ from django.views.decorators.csrf import csrf_exempt
 def startApp(request):
 
     return render(request,'appOne.html')
+
+def AboutUs(request):
+
+    return render(request,'AboutUs.html')
+
+def PresentatioScreen(request):
+
+    return render(request,'index.html')
+
+def Documentation(request):
+
+    return  render(request,'documentation.html')
