@@ -3,7 +3,7 @@ import json, math
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
+from recursos.static.pythonCodes import interpolacionLineal
 
 def startApp(request):
 
@@ -20,3 +20,13 @@ def PresentatioScreen(request):
 def Documentation(request):
 
     return  render(request,'documentation.html')
+
+
+def interpolLineal(request):
+    req = request.POST['data']
+    data = json.loads(req)
+
+    varOne = int(data.get('var'))
+
+    interpolacionLineal.interpolLineal()
+
