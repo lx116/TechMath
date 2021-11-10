@@ -20,11 +20,14 @@ def PresentatioScreen(request):
     return render(request, 'index.html')
 
 
-def Documentation(request):
-    return render(request, 'documentation.html')
 
-
+@csrf_exempt
 def interpolLineal(request):
+    req = request.POST['data']
+    data = json.loads(req)
+
+    print(data)
+
     X = np.linspace(-np.pi, np.pi, 5)
     Xexp = np.linspace(-np.pi, np.pi, 21)
     Yexp = np.sin(Xexp)
@@ -35,6 +38,7 @@ def interpolLineal(request):
     plt.plot(X, Y, 10)
     plt.show()
 
+    return JsonResponse({'resultado':Y})
 
 def interpolacionCuadratica(request):
     # INGRESO
@@ -101,7 +105,7 @@ def interpolacionCuadratica(request):
     plt.legend()
     plt.title(polinomio)
     plt.show()
-    pass
+
 
 
 def interpolacionLagrange(request):
