@@ -198,12 +198,53 @@ input
 
 .grahp_Space
 {
-    width: 440px;
-    height: 440px;
-    background-color: #5c636a;
+    margin-top: 10px;
+    min-width: 440px;
+    min-height: 440px;
+    max-height: 640px;
+    max-width: 640px;
+    background-color: #1a1e21;
+    border-radius: 10px;
+
+}
+.grahp_Space img
+{
+
+    border-radius: 10px;
+    margin: 4% 2% 4% 2%;
+    width: 550px;
 }
 
-
+.ResultVariable
+{
+    background-color: white;
+    border-radius: 10px;
+    min-width: 240px;
+    max-width: 340px;
+    height: available;
+    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+.resultados_graficos
+{
+    margin-left: 15px;
+    border-radius: 10px;
+    position: relative;
+    float: left;
+    width: 640px;
+    height: 65vh;
+    overflow: hidden;
+    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+.resultados_graficos:hover
+{
+    overflow-y: scroll;
+}
+.tableSpace
+{
+    background-color: slategrey;
+    height: 500px;
+    border-radius: 10px;
+}
 
 body
 {
@@ -217,7 +258,7 @@ select
     box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
     border: none;
 }
-footer
+.footerEnd
 {
     background: #2c3034;
     width: 100vw;
