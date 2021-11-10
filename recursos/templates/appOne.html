@@ -12,6 +12,17 @@
 {% block spaceApp %}
     <div class="col-md-8 col-xl-3 col-lg-4 inputsSpace container">
         <div class="titleSpace"><h3>AIUDA</h3></div>
+        <div class="row">
+            <div class="col-3 centerDiv">
+                <select class="seleccionar_formula">
+                    <option value="none">--------</option>
+                    <option value="interLineal">Interpolacion lineal</option>
+                    <option value="interNewton">Interpolacion de Newton</option>
+                    <option value="interLagrange">Interpolacion de LaGrange</option>
+                    <option value="interCuadratica">Interpolacion Cuadratica</option>
+                </select>
+            </div>
+        </div>
         <div class="row inputsGroup">
             <!-- Aqui estan los inputs -->
             <label for="a">

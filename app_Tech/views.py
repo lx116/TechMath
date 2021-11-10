@@ -1,7 +1,11 @@
-import matplotlib.pyplot as ptl
+import matplotlib.pyplot as plt
 import numpy as np
-from django.shortcuts import render
-
+import sympy as sym
+from django.http import request, response, HttpResponse, HttpResponseRedirect
+import json, math
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 def startApp(request):
 
@@ -13,7 +17,7 @@ def AboutUs(request):
 
 def PresentatioScreen(request):
 
-    return render(request,'index.html')
+    return render(request, 'index.html')
 
 def Documentation(request):
 
@@ -28,17 +32,14 @@ def interpolLineal(request):
 
     Y = np.interp(X, Xexp, Yexp)
     print(Y)
-    ptl.plot(Xexp, Yexp)
-    ptl.plot(X, Y, 10)
-    ptl.show()
+    plt.plot(Xexp, Yexp)
+    plt.plot(X, Y, 10)
+    plt.show()
 
 def interpolacionCuadratica(request):
     pass
 
 def interpolacionLagrange(request):
-    import numpy as np
-    import sympy as sym
-    import matplotlib.pyplot as plt
 
     #Datos
     xi = np.array([0, 0.2, 0.3, 0.4])
