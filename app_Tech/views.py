@@ -27,14 +27,23 @@ def interpolLineal(request):
 
     print(data)
 
-    X = np.linspace(-np.pi, np.pi, 5)
-    Xexp = np.linspace(-np.pi, np.pi, 21)
+    a = int(data.get('a'))
+    b = int(data.get('b'))
+    c = int(data.get('c'))
+
+    X = np.linspace(-np.pi, np.pi, a)
+    Xexp = np.linspace(-np.pi, np.pi, b)
     Yexp = np.sin(Xexp)
 
     Y = np.interp(X, Xexp, Yexp)
     print(Y)
     plt.plot(Xexp, Yexp)
-    plt.plot(X, Y, 10)
+    plt.plot(X, Y, c)
+
+    print(X)
+    print(Xexp)
+    print(Yexp)
+    plt.savefig('recursos/static/web/img/fig.png')
     plt.show()
 
 

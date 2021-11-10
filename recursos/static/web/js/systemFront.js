@@ -43,18 +43,13 @@ $(document).ready(function ()
     $('body').on('click','.calcular',function () {
 
         var convertToJson = JSON.stringify(SendBack)
-
         switch (info)
         {
             case 'interLineal':
                 $.post("/interpolacionLineal/",{data:convertToJson},function (data){
 
-                    for (var i = 0; i<data.resultado.length;i++)
-                    {
-
-                    var contendor = $("<h4>El resultado de su operacion es: "+ data.resultado[i].ValOne+" </h4>")
+                    var contendor = $("<img alt='grahp' class='imgGrahp' src=\"../static/web/img/fig.png\">")
                         $(".resultados").append(contendor)
-                        }
                 })
                 break
 
