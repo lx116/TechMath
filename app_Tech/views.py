@@ -7,25 +7,24 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-def startApp(request):
 
-    return render(request,'appOne.html')
+def startApp(request):
+    return render(request, 'appOne.html')
+
 
 def AboutUs(request):
+    return render(request, 'AboutUs.html')
 
-    return render(request,'AboutUs.html')
 
 def PresentatioScreen(request):
-
     return render(request, 'index.html')
 
-def Documentation(request):
 
-    return  render(request,'documentation.html')
+def Documentation(request):
+    return render(request, 'documentation.html')
 
 
 def interpolLineal(request):
-
     X = np.linspace(-np.pi, np.pi, 5)
     Xexp = np.linspace(-np.pi, np.pi, 21)
     Yexp = np.sin(Xexp)
@@ -36,19 +35,24 @@ def interpolLineal(request):
     plt.plot(X, Y, 10)
     plt.show()
 
+
 def interpolacionCuadratica(request):
     pass
 
-def interpolacionLagrange(request):
 
-    #Datos
+def interpolacionLagrange(request):
+    # Datos
     xi = np.array([0, 0.2, 0.3, 0.4])
     fi = np.array([1, 1.6, 1.7, 2.0])
 
-    #Procedimiento
+    # Procedimiento
 
     n = len(xi)
     x = sym.symbols("x")
+
+    numerador = 0
+    denominador = 0
+    polisimple = 0
     polinomio = 0
     for i in range(0, n, 1):
         numerador = 1
@@ -63,7 +67,7 @@ def interpolacionLagrange(request):
             polisimple = sym.expand(polinomio)
             px = sym.lambdify(x, polinomio)
 
-    #Vectores_para_graficar
+    # Vectores_para_graficar
 
     muestra = 51
     a = np.min(xi)
@@ -71,19 +75,19 @@ def interpolacionLagrange(request):
     p_xi = np.linspace(a, b, muestra)
     pfi = px(p_xi)
 
-    #salida
+    # salida
     print('Polinomio')
     print(polinomio)
     print('Polisimple:')
     print(polisimple)
 
-    #Grafica
+    # Grafica
     plt.plot(xi, fi, 'o')
     plt.plot(p_xi, pfi)
     plt.show()
 
+    return JsonResponse({'resultado': muestra})
+
 
 def interpolacionNewton(request):
     pass
-
-
