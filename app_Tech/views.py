@@ -20,7 +20,6 @@ def PresentatioScreen(request):
     return render(request, 'index.html')
 
 
-
 @csrf_exempt
 def interpolLineal(request):
     req = request.POST['data']
@@ -38,7 +37,20 @@ def interpolLineal(request):
     plt.plot(X, Y, 10)
     plt.show()
 
-    return JsonResponse({'resultado':Y})
+
+    list_productos = []
+
+    for list_valores in Y:
+
+        list_productos.append(
+            {
+                'ValOne':list_valores
+            }
+        )
+    print(list_productos)
+
+
+    return JsonResponse({'resultado':list_productos})
 
 def interpolacionCuadratica(request):
     # INGRESO
@@ -105,7 +117,6 @@ def interpolacionCuadratica(request):
     plt.legend()
     plt.title(polinomio)
     plt.show()
-
 
 
 def interpolacionLagrange(request):
@@ -194,12 +205,12 @@ def interpolacionNewton(request):
         diagonal = diagonal - 1
         j = j + 1
 
-    #POLINOMIO con diferencias Divididas
-    #caso: puntos equidistantes en eje x
+    # POLINOMIO con diferencias Divididas
+    # caso: puntos equidistantes en eje x
     dDividida = tabla[0, 3:]
     n = len(dfinita)
 
-    #expresión del polinomio con Sympy
+    # expresión del polinomio con Sympy
     x = sym.Symbol('x')
     polinomio = fi[0]
     for j in range(1, n, 1):

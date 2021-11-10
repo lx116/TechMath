@@ -13,7 +13,31 @@ $(document).ready(function ()
         }
     })
 
-
+    $(".a").keyup(function ()
+    {
+        SendBack['a'] = $(this).val();
+        console.log(SendBack)
+    })
+    $(".b").keyup(function ()
+    {
+        SendBack['b'] = $(this).val();
+        console.log(SendBack)
+    })
+    $(".c").keyup(function ()
+    {
+        SendBack['c'] = $(this).val();
+        console.log(SendBack)
+    })
+    $(".d").keyup(function ()
+    {
+        SendBack['d'] = $(this).val();
+        console.log(SendBack)
+    })
+    $(".e").keyup(function ()
+    {
+        SendBack['e'] = $(this).val();
+        console.log(SendBack)
+    })
 
 
     $('body').on('click','.calcular',function () {
@@ -24,8 +48,13 @@ $(document).ready(function ()
         {
             case 'interLineal':
                 $.post("/interpolacionLineal/",{data:convertToJson},function (data){
-                    var contendor = $("<h4>El resultado de su operacion es: "+ data.resultado+" </h4>")
+
+                    for (var i = 0; i<data.resultado.length;i++)
+                    {
+
+                    var contendor = $("<h4>El resultado de su operacion es: "+ data.resultado[i].ValOne+" </h4>")
                         $(".resultados").append(contendor)
+                        }
                 })
                 break
 
