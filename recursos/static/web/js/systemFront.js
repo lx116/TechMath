@@ -1,74 +1,65 @@
 $(document).ready(function ()
 {
     var SendBack = {}
-    var info
-    $('.seleccionar_formula').change(function () {
-        info = $(this).val()
+    var cantidad_Inputs;
+    var z
+    var arrayX = []
+    var arrayY = []
+    $('.addInputs').keyup(function ()
+    {
+        cantidad_Inputs = $(this).val()
+        console.log(cantidad_Inputs)
+    })
 
-        switch (info)
-        {
-            case 'interLineal':
-
-
-        }
+    $('.getZ').keyup(function (){
+        z = $(this).val()
     })
 
     $(".a").keyup(function ()
     {
-        SendBack['a'] = $(this).val();
-        console.log(SendBack)
-    })
-    $(".b").keyup(function ()
-    {
-        SendBack['b'] = $(this).val();
-        console.log(SendBack)
-    })
-    $(".c").keyup(function ()
-    {
-        SendBack['c'] = $(this).val();
-        console.log(SendBack)
-    })
-    $(".d").keyup(function ()
-    {
-        SendBack['d'] = $(this).val();
-        console.log(SendBack)
-    })
-    $(".e").keyup(function ()
-    {
-        SendBack['e'] = $(this).val();
+        SendBack['x'+$(this).attr('id')] = $(this).val();
         console.log(SendBack)
     })
 
+
+    $('body').on('click','.agregar',function ()
+    {
+        $('.spaceInputsX').empty()
+        $('.spaceInputsY').empty()
+
+        for (var i = 0;i <= cantidad_Inputs-1;i++)
+        {
+            var contenedorX = $("<label for='x"+i+"'>X"+i+" <input class='inputVarX' type='number' id='x"+i+"'></label>")
+            $('.spaceInputsX').append(contenedorX)
+
+            var contenedorY = $("<label for='x"+i+"'>Y"+i+"<input class='inputVarY' type='number' id='y"+i+"'></label>")
+            $('.spaceInputsY').append(contenedorY)
+        }
+    })
 
     $('body').on('click','.calcular',function () {
 
+
+        $(".inputVarX").each(function() {
+            arrayX.push($(this).val())
+
+        });
+        $(".inputVarY").each(function() {
+            arrayY.push($(this).val())
+        });
+
+        SendBack['X'] = arrayX
+        SendBack['Y'] = arrayY
+        SendBack['Z'] = z
+
+        console.log(SendBack)
         var convertToJson = JSON.stringify(SendBack)
-        switch (info)
-        {
-            case 'interLineal':
-                $.post("/interpolacionLineal/",{data:convertToJson},function (data){
+        $.post("/funcionCentral/",{data:convertToJson},function (data){
+            var contendor = $("<img alt='grahp' class='imgGrahp' src=\"../static/web/img/fig.png\">")
+                $(".resultados").append(contendor)
 
-                    var contendor = $("<img alt='grahp' class='imgGrahp' src=\"../static/web/img/fig.png\">")
-                        $(".resultados").append(contendor)
-                })
-                break
+        })
 
-            case 'interNewton':
-                $.post("/interpolacionNewton/",{data:convertToJson},function (data){
 
-                })
-                break
-
-            case 'interLagrange':
-                $.post("/interpolacionLagrange/",{data:convertToJson},function (data){
-
-                })
-                break
-            case 'interCuadratica':
-                $.post("/interpolacionCuadratica/",{data:convertToJson},function (data){
-
-                })
-                break
-        }
     })
 })

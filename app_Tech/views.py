@@ -21,6 +21,29 @@ def PresentatioScreen(request):
 
 
 @csrf_exempt
+def funcioCentral(request):
+    req = request.POST['data']
+    data = json.loads(req)
+
+    variablesX = data.get('X')
+    variablesY = data.get('Y')
+    valorZ= float(data.get('Z'))
+    print(variablesX)
+    print(variablesY)
+
+    arrayX = []
+    arrayY = []
+
+    for var in variablesX:
+        arrayX.append(float(var))
+
+    for var in variablesY:
+        arrayY.append(float(var))
+
+    print(arrayX)
+    print(arrayY)
+    print(valorZ)
+
 def interpolLineal(request):
     req = request.POST['data']
     data = json.loads(req)
@@ -46,20 +69,18 @@ def interpolLineal(request):
     plt.savefig('recursos/static/web/img/fig.png')
     plt.show()
 
-
     list_productos = []
 
     for list_valores in Y:
-
         list_productos.append(
             {
-                'ValOne':list_valores
+                'ValOne': list_valores
             }
         )
     print(list_productos)
 
+    return JsonResponse({'resultado': list_productos})
 
-    return JsonResponse({'resultado':list_productos})
 
 def interpolacionCuadratica(request):
     # INGRESO
