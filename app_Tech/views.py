@@ -93,9 +93,10 @@ def funcioCentral(request):
     plt.legend(loc='upper right')
 
     my_path = os.path.abspath(__file__)
-    plt.savefig("Grafico.jpg")
+    plt.savefig("recursos/static/web/img/Grafico.png")
     plt.show()
 
+    return JsonResponse({'tets':n})
 
 def interpolLineal(arrayX, arrayY, valorZ):
     pass
