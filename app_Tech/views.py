@@ -45,8 +45,8 @@ def funcioCentral(request):
     print(arrayY)
     print(valorZ)
 
-    #interpolLineal(arrayX, arrayY, valorZ)
-    #interpolacionCuadratica(arrayX,arrayY,valorZ)
+    interpolLineal(arrayX, arrayY, valorZ)
+    interpolacionCuadratica(arrayX,arrayY,valorZ)
     interpolacionLagrange(arrayX,arrayY,valorZ)
 
 def interpolLineal(arrayX, arrayY, valorZ):
@@ -64,10 +64,12 @@ def interpolLineal(arrayX, arrayY, valorZ):
     print(yi)
 
     # Se muestra la tabla
-    plt.plot(x, y, 'o:', xi, yi, 'sr')
-    plt.grid()
+
+
+    plt.plot(x, y, 'o:', xi, yi)
+
     plt.title('Grafica', fontsize=16)
-    plt.text(xi, yi, ' interpolacion ' + str(yi))
+    plt.text(xi, yi, ' interpolacion lineal ' + str(yi))
     plt.show()
 
     return yi
@@ -81,7 +83,17 @@ def interpolacionCuadratica(arrayX,arrayY,valorZ):
     cuadratico = interpolate.interp1d(x, y, kind='quadratic')
     xi = valorZ
     ki = cuadratico(xi)
+
+    plt.plot(x, y, 'o:', xi, ki)
+
+    plt.title('Grafica', fontsize=16)
+    plt.text(xi, ki, ' interpolacion cuadratica ' + str(ki))
+    plt.show()
+
+
     print(ki)
+
+
 
     return ki
 
@@ -93,11 +105,29 @@ def interpolacionLagrange(arrayX,arrayY,valorZ):
     # Calculo
     poly = interpolate.lagrange(x, y)
 
-    # Imprime - FALTA LA TABLA
+    # Imprime
+    plt.figure()
+    u = plt.plot(x, y, 'ro')
+    t = np.linspace(0, 1, len(x))
+    pxLagrange = interpolate.lagrange(t, x)
+    pyLagrange = interpolate.lagrange(t, y)
+    n = 100
+    ts = np.linspace(t[0], t[-1], n)
+    xLagrange = pxLagrange(ts)
+    yLagrange = pyLagrange(ts)
+    plt.plot(xLagrange, yLagrange, 'b-', label="Polynomial")
+    plt.show()
+
+
     print(poly)
 
+    return poly
 
-def interpolacionNewton(request):
+def interpolacionNewton(x, y, n, xi, yint, ea):
+
+
+
+
     # INGRESO , Datos de prueba
     xi = np.array([3.2, 3.8, 4.2, 4.5])
     fi = np.array([5.12, 6.42, 7.25, 6.85])
