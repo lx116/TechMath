@@ -26,8 +26,8 @@
 .inputsSpace
 {   margin-top: 10px;
     margin-left: auto;
-    margin-right:5% ;
-    height: 70vh;
+    margin-right:auto ;
+    height: auto;
     background: white;
     border-radius: 10px;
     box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
@@ -46,11 +46,6 @@
     background: #2c3034;
     border-radius: 10px 10px 30px 0;
 }
-.inputsGroup
-{
-    margin-left: 20%;
-}
-
 
 input
 {
@@ -119,7 +114,7 @@ input
 {
 
     margin-top: 10px;
-    height: 500px;
+    height: auto;
     width: 500px;
     margin-right: 50px;
     border-radius: 10px;
@@ -129,7 +124,7 @@ input
 {
 
     margin-top: 10px;
-    height: 500px;
+    height: auto;
     width: 500px;
     margin-left: 50px;
     border-radius: 10px;
@@ -138,7 +133,7 @@ input
 .framePhoto .img
 {
     width: 92%;
-    height: 92%;
+    height: auto;
     border-radius: 10px;
     margin: 4% 4% 3% 4%;
     background-image: url("../img/Mockup.png");
@@ -174,9 +169,21 @@ input
 {
     width: 1200px;
 }
-
-
-
+button
+{
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    background: #1a1e21;
+    color: white;
+    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.contendor_boton
+{
+    margin-top: 25px;
+}
 .centerDiv
 {
     margin: 40px 50% 40px 30%;
@@ -185,10 +192,9 @@ input
 
 .resultsSpace
 {
-    margin-top: 10px;
-    margin-left: 5%;
-    margin-right:auto ;
-    height: 70vh;
+
+    margin: 50px auto auto auto;
+    height: auto;
     background: white;
     border-radius: 10px;
     box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
@@ -198,21 +204,17 @@ input
 
 .grahp_Space
 {
-    margin-top: 10px;
-    min-width: 440px;
-    min-height: 440px;
-    max-height: 640px;
-    max-width: 640px;
     background-color: #1a1e21;
     border-radius: 10px;
+
 
 }
 .grahp_Space img
 {
 
     border-radius: 10px;
-    margin: 4% 2% 4% 2%;
-    width: 550px;
+    margin: 4% 20% 4% 20%;
+    width: auto;
 }
 
 .ResultVariable
@@ -266,7 +268,27 @@ select
     margin-top: 80px;
 }
 
+.spaceInputsX
+{
+    height: 400px;
+    overflow: auto;
+    margin: auto auto 20px auto;
+    border-radius: 10px;
 
+    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+}
+.spaceInputsY
+{
+
+    height: 400px;
+    overflow: auto;
+    margin: auto auto 20px auto;
+    border-radius: 10px;
+
+    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+}
 
 ::-webkit-scrollbar
 {

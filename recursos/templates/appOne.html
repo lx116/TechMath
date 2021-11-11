@@ -10,57 +10,57 @@
 {% endblock %}
 
 {% block spaceApp %}
-    <div class="col-md-8 col-xl-3 col-lg-4 inputsSpace container">
-        <div class="titleSpace"><h3>AIUDA</h3></div>
-        <div class="row">
-            <div class="col-3 centerDiv">
-                <select class="seleccionar_formula">
-                    <option value="none">--------</option>
-                    <option value="interLineal">Interpolacion lineal</option>
-                    <option value="interNewton">Interpolacion de Newton</option>
-                    <option value="interLagrange">Interpolacion de LaGrange</option>
-                    <option value="interCuadratica">Interpolacion Cuadratica</option>
-                </select>
-            </div>
-        </div>
+    <div class="col-6 inputsSpace container">
+        <div class="titleSpace"><h3>VARIABLES</h3></div>
         <div class="row inputsGroup">
             <!-- Aqui estan los inputs -->
+            <div class="container col-3">
+                <label for="b" class="row">
+                       ¿Cuantas variables necesitas? <input type="number" class="addInputs " id="b">
+                </label>
+                <div class="row contendor_boton">
+                    <button class="agregar col">Agregar</button>
+                </div>
+                <label for="z" class="row" >
+                       ¿Que valor desea encontrar? <input type="number" class="addInputs getZ" id="z">
+                </label>
+                <div class="row contendor_boton">
+                    <button class="calcular col">CALCULAARRR</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
 
-            <label for="b">
-                   ¿Cuantas variables necesitas? <input type="number" class="addInputs " id="b">
-            </label>
-            <label for="z">
-                   ¿Que valor desea encontrar? <input type="number" class="addInputs getZ" id="z">
-            </label>
-            <button class="agregar">Agregar</button>
-            <button class="calcular">CALCULAARRR</button>
+            <div class="col-3 spaceInputsX"></div>
 
-            <div class="col-4 spaceInputsX"></div>
-            <div class="col-4 spaceInputsY"></div>
+            <div class="col-3 spaceInputsY"></div>
         </div>
 
     </div>
 
+
+{% endblock %}
+
+{% block resultados %}
     <div class="col-xxl-7 col-xl-10  resultsSpace container-fluid">
         <div class="titleSpace">
             <h3> RESULTADOS</h3>
         </div>
-        <div class="container results">
-            <div class="row">
-                <div class="col ResultVariable">
-
+            <div class="col">
+                <h3>Interpolacion lineal</h3>
+                <div class="grahp_Space Lineal">
+                    <img alt='grahp' class='imgGrahp lineal' src="../static/web/img/fig.png">
                 </div>
-                <div class="col resultados_graficos">
-                    <h3>TABLA</h3>
-                    <div class="tableSpace">
-
-                    </div>
-                    <h3>Grafico</h3>
-                    <div class="grahp_Space">
-                        <img alt='grahp' class='imgGrahp' src="../static/web/img/fig.png">
-                    </div>
+                <h3>Interpolacion de LaGrange</h3>
+                <div class="grahp_Space Lagrange">
+                    <img alt='grahp' class='imgGrahp lagrange' src="../static/web/img/fig.png">
+                </div>
+                <h3>Interpolacion Cuadratica</h3>
+                <div class="grahp_Space Cuadratica">
+                    <img alt='grahp' class='imgGrahp cuadra' src="../static/web/img/fig.png">
                 </div>
             </div>
-        </div>
+
+
     </div>
 {% endblock %}

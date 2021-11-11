@@ -55,8 +55,12 @@ $(document).ready(function ()
         console.log(SendBack)
         var convertToJson = JSON.stringify(SendBack)
         $.post("/funcionCentral/",{data:convertToJson},function (data){
-            var contendor = $("<img alt='grahp' class='imgGrahp' src=\"../static/web/img/fig.png\">")
-                $(".resultados").append(contendor)
+            var contendorA = $("<img alt='grahp' class='imgGrahp' src=\"../static/web/img/fig.png\">")
+                $(".Lineal").append(contendorA)
+            var contendorB = $("<img alt='grahp' class='imgGrahp' src=\"../static/web/img/fig.png\">")
+                $(".Lagrange").append(contendorB)
+            var contendorC = $("<img alt='grahp' class='imgGrahp' src=\"../static/web/img/fig.png\">")
+                $(".Cuadratica").append(contendorC)
 
         })
 
