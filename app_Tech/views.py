@@ -21,8 +21,22 @@ def PresentatioScreen(request):
     return render(request, 'index.html')
 
 
-def Documentation(request):
-    return render(request, 'documentation.html')
+@csrf_exempt
+def funcioCentral(request):
+    req = request.POST['data']
+    data = json.loads(req)
+
+    variablesX = data.get('X')
+    variablesY = data.get('Y')
+    valorZ= float(data.get('Z'))
+    print(variablesX)
+    print(variablesY)
+
+    arrayX = []
+    arrayY = []
+
+    for var in variablesX:
+        arrayX.append(float(var))
 
 
 def interpolLineal(request):
