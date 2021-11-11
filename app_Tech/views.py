@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import sympy as sym
+import os
 from scipy import interpolate
 from django.http import request, response, HttpResponse, HttpResponseRedirect
 import json, math
@@ -45,37 +46,62 @@ def funcioCentral(request):
     print(arrayY)
     print(valorZ)
 
-    interpolLineal(arrayX, arrayY, valorZ)
-    interpolacionCuadratica(arrayX,arrayY,valorZ)
-    interpolacionLagrange(arrayX,arrayY,valorZ)
+    # Interpolacion lineal
+    xlineal = np.array(arrayX)
+    ylineal = np.array(arrayY)
 
-def interpolLineal(arrayX, arrayY, valorZ):
-    # Aqui van los datos de los inputs
-    x = np.array(arrayX)
-    y = np.array(arrayY)
+    polinomio = interpolate.interp1d(xlineal, ylineal)
 
-    # Se interpola y "xi" es la x a buscar
+    xiL = valorZ
+    linealR = polinomio(xiL)
+    print(linealR)
 
-    polinomio = interpolate.interp1d(x, y)
+    # Interpolacion Cuadratica
+    xcuad = np.array(arrayX)
+    ycuad = np.array(arrayY)
 
-    xi = valorZ
-    yi = polinomio(xi)
+    cuadratico = interpolate.interp1d(xcuad, ycuad, kind='quadratic')
+    xiC = valorZ
+    cuadR = cuadratico(xiC)
 
-    print(yi)
+    print(cuadR)
 
-    # Se muestra la tabla
+    # Lagrange
+    xlag = np.array(arrayX)
+    ylag = np.array(arrayY)
 
+    lagR = interpolate.lagrange(xlag, ylag)
 
-    plt.plot(x, y, 'o:', xi, yi)
+    print(lagR)
 
-    plt.title('Grafica', fontsize=16)
-    plt.text(xi, yi, ' interpolacion lineal ' + str(yi))
+    fig, ax = plt.subplots()
+
+    plt.plot(arrayX, arrayY,  xiL, linealR, 'o:',  color='tab:purple', label='Lineal')
+    plt.text(xiL, linealR, str(linealR))
+    plt.plot(arrayX, arrayY, xiC, cuadR,  'o:',  color='tab:green', label= 'Cuadratica')
+    plt.text(xiC, cuadR, str(cuadR))
+
+    u = plt.plot(np.array(arrayX), np.array(arrayY), 'ro')
+    t = np.linspace(0, 1, len(np.array(arrayX)))
+    pxLagrange = interpolate.lagrange(t, np.array(arrayX))
+    pyLagrange = interpolate.lagrange(t, np.array(arrayY),)
+    n = 100
+    ts = np.linspace(t[0], t[-1], n)
+    xLagrange = pxLagrange(ts)
+    yLagrange = pyLagrange(ts)
+    plt.plot(xLagrange, yLagrange, 'b-', color='tab:red', label='Lagrange')
+    plt.legend(loc='upper right')
+
+    my_path = os.path.abspath(__file__)
+    plt.savefig("Grafico.jpg")
     plt.show()
 
-    return yi
+
+def interpolLineal(arrayX, arrayY, valorZ):
+    pass
 
 
-def interpolacionCuadratica(arrayX,arrayY,valorZ):
+def interpolacionCuadratica(arrayX, arrayY, valorZ):
     # Aqui van los datos de los inputs
     x = np.array(arrayX)
     y = np.array(arrayY)
@@ -88,16 +114,13 @@ def interpolacionCuadratica(arrayX,arrayY,valorZ):
 
     plt.title('Grafica', fontsize=16)
     plt.text(xi, ki, ' interpolacion cuadratica ' + str(ki))
-    plt.show()
-
 
     print(ki)
 
-
-
     return ki
 
-def interpolacionLagrange(arrayX,arrayY,valorZ):
+
+def interpolacionLagrange(arrayX, arrayY, valorZ):
     # Datos de la tabla
     x = np.array(arrayX)
     y = np.array(arrayY)
@@ -116,18 +139,13 @@ def interpolacionLagrange(arrayX,arrayY,valorZ):
     xLagrange = pxLagrange(ts)
     yLagrange = pyLagrange(ts)
     plt.plot(xLagrange, yLagrange, 'b-', label="Polynomial")
-    plt.show()
-
 
     print(poly)
 
     return poly
 
+
 def interpolacionNewton(x, y, n, xi, yint, ea):
-
-
-
-
     # INGRESO , Datos de prueba
     xi = np.array([3.2, 3.8, 4.2, 4.5])
     fi = np.array([5.12, 6.42, 7.25, 6.85])
