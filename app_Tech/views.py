@@ -21,7 +21,6 @@ def AboutUs(request):
 def PresentatioScreen(request):
     return render(request, 'index.html')
 
-
 @csrf_exempt
 def funcioCentral(request):
     req = request.POST['data']
@@ -76,15 +75,15 @@ def funcioCentral(request):
 
     fig, ax = plt.subplots()
 
-    plt.plot(arrayX, arrayY,  xiL, linealR, 'o:',  color='tab:purple', label='Lineal')
+    plt.plot(arrayX, arrayY, xiL, linealR, 'o:', color='tab:purple', label='Lineal')
     plt.text(xiL, linealR, str(linealR))
-    plt.plot(arrayX, arrayY, xiC, cuadR,  'o:',  color='tab:green', label= 'Cuadratica')
+    plt.plot(arrayX, arrayY, xiC, cuadR, 'o:', color='tab:green', label='Cuadratica')
     plt.text(xiC, cuadR, str(cuadR))
 
     u = plt.plot(np.array(arrayX), np.array(arrayY), 'ro')
     t = np.linspace(0, 1, len(np.array(arrayX)))
     pxLagrange = interpolate.lagrange(t, np.array(arrayX))
-    pyLagrange = interpolate.lagrange(t, np.array(arrayY),)
+    pyLagrange = interpolate.lagrange(t, np.array(arrayY), )
     n = 100
     ts = np.linspace(t[0], t[-1], n)
     xLagrange = pxLagrange(ts)
@@ -96,10 +95,23 @@ def funcioCentral(request):
     plt.savefig("recursos/static/web/img/Grafico.png")
     plt.show()
 
-    return JsonResponse({'tets':n})
+    return
+
 
 def interpolLineal(arrayX, arrayY, valorZ):
-    pass
+    xlineal = np.array(arrayX)
+    ylineal = np.array(arrayY)
+
+    polinomio = interpolate.interp1d(xlineal, ylineal)
+
+    xiL = valorZ
+    linealR = polinomio(xiL)
+
+    print(linealR)
+
+    linealArray = [xiL, linealR]
+
+    return linealArray
 
 
 def interpolacionCuadratica(arrayX, arrayY, valorZ):
@@ -117,8 +129,11 @@ def interpolacionCuadratica(arrayX, arrayY, valorZ):
     plt.text(xi, ki, ' interpolacion cuadratica ' + str(ki))
 
     print(ki)
+    print(cuadratico)
 
-    return ki
+    arrayResultado = [xi, cuadratico, ki]
+
+    return arrayResultado
 
 
 def interpolacionLagrange(arrayX, arrayY, valorZ):
@@ -142,8 +157,9 @@ def interpolacionLagrange(arrayX, arrayY, valorZ):
     plt.plot(xLagrange, yLagrange, 'b-', label="Polynomial")
 
     print(poly)
+    arrayResultados = [xLagrange, yLagrange]
 
-    return poly
+    return arrayResultados
 
 
 def interpolacionNewton(x, y, n, xi, yint, ea):
@@ -234,3 +250,7 @@ def interpolacionNewton(x, y, n, xi, yint, ea):
     plt.title('Diferencias Divididas - Newton')
     plt.show()
     pass
+
+@csrf_exempt
+def resultados(request):
+    return render(request,'Resultados.html')
