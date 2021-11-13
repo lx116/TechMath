@@ -3,8 +3,6 @@ $(document).ready(function ()
     var SendBack = {}
     var cantidad_Inputs;
     var z
-    var arrayX = []
-    var arrayY = []
     $('.addInputs').keyup(function ()
     {
         cantidad_Inputs = $(this).val()
@@ -40,6 +38,9 @@ $(document).ready(function ()
     $('body').on('click','.calcular',function () {
 
 
+        var arrayX = []
+        var arrayY = []
+
         $(".inputVarX").each(function() {
             arrayX.push($(this).val())
 
@@ -54,9 +55,16 @@ $(document).ready(function ()
 
         console.log(SendBack)
         var convertToJson = JSON.stringify(SendBack)
+        $('#resultado').html('')
 
         $.post("/funcionCentral/",{data:convertToJson},function (data){
-
+            if(data.success){
+                $('#resultado').html("<img alt='resultado' src='"+data.imagen+"'>")
+                }
+            else
+                {
+                    alert(data.mensaje)
+                }
         })
 
     })

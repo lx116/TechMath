@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import startApp,AboutUs,PresentatioScreen,interpolLineal,resultados,interpolacionLagrange,interpolacionNewton,interpolacionCuadratica,funcioCentral
+from .views import startApp,AboutUs,PresentatioScreen,interpolLineal,interpolacionLagrange,interpolacionNewton,interpolacionCuadratica,funcioCentral
 urlpatterns = [
     path('inicio/',startApp,name='Inicio'),
     path('acercaDe/',AboutUs,name='Acerca de'),
@@ -9,6 +9,5 @@ urlpatterns = [
     path('interpolacionNewton/',interpolacionNewton,name='Newton'),
     path('interpolacionCuadratica/',interpolacionCuadratica,name='Cuadratica'),
     path('funcionCentral/',funcioCentral,name='centro'),
-    path('resultados/',resultados,name='akgi')
 
 ]
