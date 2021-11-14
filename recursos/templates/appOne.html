@@ -10,38 +10,37 @@
 {% endblock %}
 
 {% block spaceApp %}
-    <div class="col-6 inputsSpace container">
-        <div class="titleSpace"><h3>VARIABLES</h3></div>
-        <div class="row inputsGroup">
-            <!-- Aqui estan los inputs -->
-            <div class="container col-3">
-                <label for="b" class="row">
-                       ¿Cuantas variables necesitas? <input type="number" class="addInputs " id="b">
-                </label>
-                <div class="row contendor_boton">
-                    <button class="agregar col">Agregar</button>
-                </div>
-                <label for="z" class="row" >
-                       ¿Que valor desea encontrar? <input type="number" class="getZ" id="z">
-                </label>
-                <div class="row contendor_boton">
-
-                    <a class="calcular col redirect">CALCULAR</a>
-
+    <div class="row">
+        <div class="col-6 inputsSpace container">
+            <div class="titleSpace"><h3>VARIABLES</h3></div>
+            <div class="row inputsGroup">
+                <!-- Aqui estan los inputs -->
+                <div class="container col-3">
+                    <label for="b" class="row">
+                           ¿Cuantas variables necesitas? <input type="number" class="addInputs " id="b">
+                    </label>
+                    <div class="row contendor_boton">
+                        <button class="agregar col">Agregar</button>
+                    </div>
+                    <label for="z" class="row" >
+                           ¿Que valor desea encontrar? <input type="number" class="getZ" id="z">
+                    </label>
                 </div>
             </div>
+            <div class="row">
+
+                <div class="col-3 spaceInputsX"></div>
+
+                <div class="col-3 spaceInputsY"></div>
+            </div>
+            <div class="row contendor_boton">
+                    <button class="col-3 calcular auto_margin col redirect">CALCULAR</button>
+            </div>
         </div>
-        <div class="row">
+    </div>
+    <div class="row separador">
+        <div class="container col-6 auto_margin" id="resultado_global">
 
-            <div class="col-3 spaceInputsX"></div>
-
-            <div class="col-3 spaceInputsY"></div>
         </div>
-
     </div>
-
-    <div id="resultado">
-
-    </div>
-
 {% endblock %}

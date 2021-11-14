@@ -24,10 +24,10 @@
         <div class="container-fluid">
             <ul class="nav navColorText">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Inicio</a>
+                    <a class="nav-link" href="/inicio/">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Acerca de</a>
+                    <a class="nav-link" href="/acercaDe/">Acerca de</a>
                 </li>
 
             </ul>
@@ -36,21 +36,19 @@
 
     <div class="container-fluid">
         <div class="row banner">
-            {% block banner %}
-            {% endblock %}
+            <div class="logoBanner auto_margin">
+                <img src="{% static 'web/img/182687.png' %}">
+            </div>
         </div>
 
         <div class="row spaceApp">
             {% block spaceApp %}
             {% endblock %}
         </div>
-        <div class="row">
-            {% block resultados %}
 
-            {% endblock %}
-        </div>
     </div>
     <footer class="footerEnd">
+
 
     </footer>
 </body>

@@ -27,10 +27,10 @@ $(document).ready(function ()
 
         for (var i = 0;i <= cantidad_Inputs-1;i++)
         {
-            var contenedorX = $("<label for='x"+i+"'>X"+i+" <input class='inputVarX' type='number' id='x"+i+"'></label>")
+            var contenedorX = $("<label for='x"+i+"'>X"+i+": <input class='inputVarX inputVar' type='number' id='x"+i+"'></label>")
             $('.spaceInputsX').append(contenedorX)
 
-            var contenedorY = $("<label for='x"+i+"'>Y"+i+"<input class='inputVarY' type='number' id='y"+i+"'></label>")
+            var contenedorY = $("<label for='x"+i+"'>Y"+i+": <input class='inputVarY inputVar' type='number' id='y"+i+"'></label>")
             $('.spaceInputsY').append(contenedorY)
         }
     })
@@ -40,6 +40,7 @@ $(document).ready(function ()
 
         var arrayX = []
         var arrayY = []
+        var aceptado = false
 
         $(".inputVarX").each(function() {
             arrayX.push($(this).val())
@@ -55,12 +56,27 @@ $(document).ready(function ()
 
         console.log(SendBack)
         var convertToJson = JSON.stringify(SendBack)
-        $('#resultado').html('')
+        $('#resultado_global').html('')
 
         $.post("/funcionCentral/",{data:convertToJson},function (data){
+            aceptado = data.success
+
             if(data.success){
-                $('#resultado').html("<img alt='resultado' src='"+data.imagen+"'>")
-                }
+                $('#resultado_global').html("<div class=\"resultados_graficos\">\n" +
+                    "                <div class=\"titleSpace \">\n" +
+                    "                    <h2 class=\"navColorText\">Resultados</h2>\n" +
+                    "                </div>\n" +
+                    "                <div class=\"row\">\n" +
+                    "                    <div class=\"grafica col-6\">\n" +
+                    "                        <img alt='resultado_global' src='"+data.imagen+"'>\n" +
+                    "                    </div>\n" +
+                    "                    <div class=\"col-4 resultados_variables\">\n" +
+                    "                        <h5>Interpolacion Lineal: "+data.lineal_resultado+"</h5>\n" +
+                    "                        <h5>Interpolacion Cuadratica: "+data.cuadratica+"</h5>\n" +
+                    "                        <h5>Interpolacion Lagrange: "+data.lagrange_resultado+"</h5>\n" +
+                    "                    </div>\n" +
+                    "                </div>\n" +
+                    "            </div>")}
             else
                 {
                     alert(data.mensaje)

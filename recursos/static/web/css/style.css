@@ -189,58 +189,6 @@ button
     margin: 40px 50% 40px 30%;
 }
 
-
-.resultsSpace
-{
-
-    margin: 50px auto auto auto;
-    height: auto;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
-    padding: 0;
-
-}
-
-.grahp_Space
-{
-    background-color: #1a1e21;
-    border-radius: 10px;
-
-
-}
-.grahp_Space img
-{
-
-    border-radius: 10px;
-    margin: 4% 20% 4% 20%;
-    width: auto;
-}
-
-.ResultVariable
-{
-    background-color: white;
-    border-radius: 10px;
-    min-width: 240px;
-    max-width: 340px;
-    height: available;
-    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
-}
-.resultados_graficos
-{
-    margin-left: 15px;
-    border-radius: 10px;
-    position: relative;
-    float: left;
-    width: 640px;
-    height: 65vh;
-    overflow: hidden;
-    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
-}
-.resultados_graficos:hover
-{
-    overflow-y: scroll;
-}
 .tableSpace
 {
     background-color: slategrey;
@@ -293,4 +241,67 @@ select
 ::-webkit-scrollbar
 {
     width: 3px;
+}
+
+.resultados_graficos
+{
+    height: 630px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
+
+}
+.auto_margin
+{
+    margin-left: auto;
+    margin-right:auto ;
+}
+.separador
+{
+    margin-top: 20px;
+}
+.grafica
+{
+
+    height: 480px;
+    border-radius: 20px;
+    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 50px;
+    margin-top: 50px;
+    background-color: white;
+    margin-left: 50px;
+    padding: 0;
+}
+.grafica img
+{
+    border-radius: 20px;
+    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+.resultados_variables
+{
+    height: 480px;
+    border-radius: 20px;
+    box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    margin: 50px 50px 50px auto;
+}
+.resultados_variables h5
+{
+    margin-top: 30px;
+    margin-left: 10px;
+    font-size: 18px;
+}
+.logoBanner
+{
+    border-radius: 50%;
+    background-color: white;
+    width: 190px;
+    height: 190px;
+    margin-top: 51px;
+}
+.logoBanner img
+{
+    width: 130px;
+    margin-top: 30px;
+    margin-left: 15px;
 }
